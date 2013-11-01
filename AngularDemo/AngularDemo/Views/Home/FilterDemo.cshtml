@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+
+
+
+<div ng-app class="container-fluid">
+    <h2>Filters</h2>
+    <div data-ng-init="users=[
+        {name:'Abhi', surname: 'Jain'}, 
+        {name:'Sumi', surname: 'Salahudeen'}, 
+        {name:'Jamie', surname: 'Fenlon'}, 
+        {name:'Julie', surname: 'Hollis'}]
+        ">
+        <h4>Filter by:</h4>
+        <input type="text" ng-model="searchText"/>
+        <ul class="unstyled">
+            <li data-ng-repeat="user in users | filter:searchText | orderBy:'surname'">
+                {{user.surname}}, {{user.name}} 
+            </li> 
+        </ul>
+
+    </div>
+</div>

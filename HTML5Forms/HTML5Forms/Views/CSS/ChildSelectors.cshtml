@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "ChildSelectors";
+}
+
+<style type="text/css">
+    div :first-child
+    {
+        background-color: rgba(255, 216, 0, 0.6);
+        padding: 4px;
+    }
+
+    div :last-child
+    {
+        background-color: rgba(76, 255, 0, 0.5);
+        padding: 4px;
+    }
+
+    span:only-child
+    {
+        background-color: rgba(176, 15, 0, 0.5);
+        padding: 4px;
+    }
+
+    div :only-of-type
+    {
+        background-color: rgba(176, 15, 2000, 0.5);
+        padding: 4px;
+    }
+
+    div > :nth-child(1)
+    {
+        border: thin black solid;
+        padding: 4px;
+    }
+
+    :nth-of-type(3)
+    {
+        color: #ccc;
+    }
+</style>
+
+<div class="firstDiv">
+    <p class="firstPara">
+        First para
+        
+    </p>
+    <p class="secondPara">
+        <span>Second para</span>
+
+    </p>
+    <p class="lastPara">
+        Last para
+    </p>
+    <ul>
+        <li>First li</li>
+        <li>Second li</li>
+        <li>Last li</li>
+    </ul>
+</div>

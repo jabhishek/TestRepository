@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "BoxModel1";
+}
+
+<style type="text/css">
+    #outerDiv
+    {
+        height: 200px;
+        width: 200px;
+        border-radius: 15px;
+        background-color: rgb(181, 255, 222); /*for <IE 9*/
+        background-color: rgba(0, 255, 144, 0.3);
+        -webkit-box-shadow: 1px 1px 10px 0px rgba(0, 255, 144, 1), -1px -1px 10px 0px rgba(0, 255, 144, 1);
+        box-shadow: 1px 1px 10px 0px rgba(0, 255, 144, 1), -1px -1px 10px 0px rgba(0, 255, 144, 1);
+    }
+
+    #innerDiv
+    {
+        border: 1px solid #000;
+        border-radius: 15px;
+        background-color: lightgray;
+        -moz-background-clip: content-box;
+        -webkit-background-clip: content-box;
+        background-clip: content-box;
+        padding: 0.5em;
+        margin: 10px;
+    }
+</style>
+
+<h2>BoxModel1</h2>
+
+<div id="outerDiv">
+    <div id="innerDiv">
+    </div>
+</div>

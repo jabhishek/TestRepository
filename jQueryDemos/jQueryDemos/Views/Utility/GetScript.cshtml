@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "GetScript";
+}
+
+<h2>GetScript</h2>
+
+<script>
+    $(document).ready(function () {
+        $('input').click(function () {
+            $.getScript('/Scripts2/scripty.js', function (data, textStatus)
+            { console.log(textStatus); })
+        });
+
+
+        $('#clickme').ajaxError(function (event, jqXHR, ajaxSettings, thrownError)
+        { console.log(thrownError); });
+    });
+
+</script>
+
+<input type="button" value="click me" />

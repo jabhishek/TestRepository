@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "DOMObject1";
+}
+
+
+<div style="width: 80%; margin: 0px auto">
+    <h2>DOMObject1</h2>
+
+    <div id="Topics">
+        Explores:-
+    <ol>
+        <li>Working with Document metadata</li>
+        <li>Working with location Object</li>
+    </ol>
+    </div>
+
+    <p id="fruittext">
+        There are lots of different kinds of fruit - there are over 500
+varieties of <span id="banana">banana</span> alone. By the time we add the
+countless types of apples, oranges, and other well-known fruit, we are faced
+with thousands of choices.
+    </p>
+    <button id="pressme">Press Me</button>
+    <p id="apples">
+        One of the most interesting aspects of fruit is the
+variety available in each country. I live near London, in an area which is
+known for its apples.
+    </p>
+    <img id="triathlon" src="~/Content/images/triathlon.png" alt="triathlon" />
+</div>
+<script>
+    document.writeln("<hr/>");
+    document.writeln("<pre>URL: " + document.URL);
+    var elems = document.getElementsByTagName("p");
+    for (var i = 0; i < elems.length; i++) {
+        document.writeln("Element ID: " + elems[i].id);
+        elems[i].style.border = "medium double black";
+        elems[i].style.padding = "4px";
+    }
+    document.write("</pre>");
+
+    document.writeln("<hr/>");
+    document.writeln("<h3>Working with Document Metadata</h3>");
+    document.writeln("<hr/>");
+    document.writeln("<pre>");
+    document.writeln("characterSet: " + document.characterSet);
+    document.writeln("charset: " + document.charset);
+    document.writeln("compatMode: " + document.compatMode);
+    document.writeln("defaultCharset: " + document.defaultCharset);
+    document.writeln("dir: " + document.dir);
+    document.writeln("domain: " + document.domain);
+    document.writeln("lastModified: " + document.lastModified);
+    document.writeln("referrer: " + document.referrer);
+    document.writeln("title: " + document.title);
+    document.writeln("<br/>");
+
+    document.writeln("<strong>Location</strong>");
+    document.writeln("protocol: " + document.location.protocol);
+    document.writeln("host: " + document.location.host);
+    document.writeln("hostname: " + document.location.hostname);
+    document.writeln("port: " + document.location.port);
+    document.writeln("pathname: " + document.location.pathname);
+    document.writeln("search: " + document.location.search);
+    document.writeln("hash: " + document.location.hash);
+    document.write("</pre>");
+
+    document.getElementById("pressme").onclick = function () {
+        //document.location.hash = "triathlon";
+        document.location.assign("http://www.daviesturner.net");
+    }
+</script>

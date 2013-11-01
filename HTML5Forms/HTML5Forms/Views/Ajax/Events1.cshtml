@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Events1";
+}
+
+<style>
+    table
+    {
+        margin: 10px;
+        border-collapse: collapse;
+    }
+
+    div
+    {
+        margin: 10px;
+    }
+
+    td, th
+    {
+        padding: 4px;
+    }
+</style>
+<h2>Events1</h2>
+
+<div>
+    <button>LongRunning</button>
+    <button>ModerateRunning</button>
+    <button>Fast</button>
+    <button>Instant</button>
+    <button>NonExistent</button>
+</div>
+<table id="events" border="1">
+</table>
+<div id="target">
+    Press a button
+</div>
+<div id="errormsg"></div>
+<script>
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = handleButtonPress;
+    }
+    var httpRequest;
+    function handleButtonPress(e) {
+        clearEventDetails();
+        httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = handleResponse;
+        httpRequest.onerror = handleError;
+        httpRequest.onload = handleLoad;
+        httpRequest.onloadend = handleLoadEnd;
+        httpRequest.onloadstart = handleLoadStart;
+        httpRequest.onprogress = handleProgress;
+        try {
+            httpRequest.open("GET", "../Test/" + e.target.innerHTML);
+            httpRequest.send();
+        }
+        catch (error) {
+            displayErrorMsg("try/catch", error.message);
+        }
+    }
+    function handleResponse(e) {
+        displayEventDetails("readystate(" + httpRequest.readyState + ")");
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            document.getElementById("target").innerHTML
+            = httpRequest.responseText;
+        }
+    }
+    function handleError(e) {
+        displayErrorMsg("Error event", httpRequest.status
+    + httpRequest.statusText);
+    }
+    function handleLoad(e) { displayEventDetails("load", e); }
+    function handleLoadEnd(e) { displayEventDetails("loadend", e); }
+    function handleLoadStart(e) { displayEventDetails("loadstart", e); }
+    function handleProgress(e) { displayEventDetails("progress", e); }
+    function clearEventDetails() {
+        document.getElementById("events").innerHTML
+        = "<tr><th>Event</th><th>lengthComputable</th>"
+        + "<th>loaded</th><th>total</th></tr>"
+    }
+    function displayEventDetails(eventName, e) {
+        if (e) {
+            document.getElementById("events").innerHTML +=
+            "<tr><td>" + eventName + "</td><td>" + e.lengthComputable
+            + "</td><td>" + e.loaded + "</td><td>" + e.total
+            + "</td></tr>";
+        } else {
+            document.getElementById("events").innerHTML +=
+            "<tr><td>" + eventName
+            + "</td><td>NA</td><td>NA</td><td>NA</td></tr>";
+        }
+    }
+    function displayErrorMsg(src, msg) {
+        document.getElementById("errormsg").innerHTML = src + ": " + msg;
+    }
+</script>

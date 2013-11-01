@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "DynamicPseudoClassSelectors";
+}
+
+<style type="text/css">
+    a:hover
+    {
+        background-color: rgba(117, 214, 246, 0.5);
+    }
+
+    a
+    {
+        background-color: rgba(117, 214, 246, 1);
+    }
+
+    :link
+    {
+        border: thin black solid;
+        background-color: lightgrey;
+        padding: 4px;
+        color: red;
+    }
+
+    :visited
+    {
+        background-color: grey;
+        color: white;
+    }
+
+    a:active
+    {
+        background-color: blue;
+    }
+</style>
+
+<h2>Dynamic Pseudo Class Selectors</h2>
+
+<a href="http://apress.com">Visit the Apress website</a>
+<p>I like <span>apples</span> and oranges.</p>
+<a href="http://w3c.org">Visit the W3C website</a>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+<style>
+    .panel
+    {
+        background-color: red;
+    }
+</style>
+<h2>title</h2>
+
+<div data-ng-app="myApp">
+    @* passing parameter in leave directive to make it more useful *@
+    @* in the directive function, it is accepted in 3rd paramater attrs *@
+    <div enter leave="panel">Some Content</div>
+</div>
+
+<script>
+
+    var myApp = angular.module("myApp", []);
+
+    /* Can also write like this*/
+    /* Default restriction is A (Attribute) */
+    myApp.directive("enter", function () {
+        return function (scope, element) {
+            element.bind("mouseenter", function () {
+                element.addClass("panel");
+            });
+        };
+    });
+    myApp.directive("leave", function () {
+        return function (scope, element, attrs) {
+            element.bind("mouseleave", function () {
+                element.removeClass(attrs.leave);
+            });
+        };
+    });
+
+</script>

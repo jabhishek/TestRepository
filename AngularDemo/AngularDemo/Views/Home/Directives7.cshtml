@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+
+<style>
+    .red
+    {
+        color: red;
+    }
+
+    .bold
+    {
+        font-weight: bold;
+    }
+
+    .rounded
+    {
+        border-radius: 5px;
+    }
+</style>
+
+<div data-ng-app="myApp">
+    <div data-ng-controller="myController">
+        <elem ng-click="sendMessage"></elem>
+    </div>
+</div>
+
+<script>
+    var app = angular.module("myApp", []);
+
+    app.controller('myController', function () {
+        $scope.sendMessage = function(message) {
+            console.log(message);
+        };
+    });
+
+    app.directive("elem", function () {
+        return {
+            restrict: "E",
+            require: "^ngClick",
+            scope:
+            {
+                  
+            },
+            template: "<div></div>",
+            controller: function ($scope) {
+                $scope.classList = [];
+                this.addRed = function () {
+                    $scope.classList.push("red");
+                };
+                this.addBold = function () {
+                    $scope.classList.push("bold");
+                };
+                this.addRounded = function () {
+                    $scope.classList.push("rounded");
+                };
+            },
+
+            link: function (scope, element) {
+                scope.classList.each(i, function () {
+                    element.addClass(i);
+                });
+            }
+        };
+    });
+
+    app.directive("red", function () {
+        return {
+            require: "elem",
+            link: function (scope, element, attrs, controller) {
+                controller.addRed();
+            }
+        };
+    });
+    app.directive("bold", function () {
+        return {
+            require: "elem",
+            link: function (scope, element, attrs, controller) {
+                controller.addBold();
+            }
+        };
+    });
+    app.directive("round", function () {
+        return {
+            require: "elem",
+            link: function (scope, element, attrs, controller) {
+                controller.addRounded();
+            }
+        };
+    });
+</script>

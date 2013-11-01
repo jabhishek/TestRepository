@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Demo1";
+}
+<div ng-app>
+    <h2>Demo1</h2>
+    <div
+        data-ng-init="names=['Abhi', 'Vanita', 'Vatsal', 'Avni']">
+        <h3>Looping with bg-repeat Directive</h3>
+        <ul>
+            <li data-ng-repeat="name in names">{{name}}
+            </li>
+        </ul>
+
+    </div>
+</div>

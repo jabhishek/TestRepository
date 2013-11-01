@@ -1,0 +1,159 @@
+﻿<div id="body">
+
+    <label id='loading' >Loading....</label>
+
+    <div data-bind="dump: $root, enable: false"></div>
+    
+    <span data-bind="text: addresses().length"></span> addresses found.
+    <span data-bind="visible: addresses().length == 500">Please refine your query.</span> <br/>
+    Enter Name: <input type="text" data-bind="value: searchString, valueUpdate: 'afterkeydown'" />
+    <table class="table table-condensed" id="tblData" data-bind="visible: addresses().length > 0">
+        <tr>
+            <td>Name</td>
+            <td>Code</td>
+            <td>Addr1</td>
+            <td>Addr2</td>
+            <td>Addr3</td>
+            <td>Addr4</td>
+            <td>PostCode</td>
+            <td>Country</td>
+        </tr>
+        <tbody data-bind="foreach: addresses">
+            <tr>
+                <td><span data-bind="text: Name"></span></td>
+                <td><span data-bind="text: Code"></span></td>
+                <td><span data-bind="text: Address1"></span></td>
+                <td><span data-bind="text: Address2"></span></td>
+                <td><span data-bind="text: Address3"></span></td>
+                <td><span data-bind="text: Address4"></span></td>
+                <td><span data-bind="text: PostCode"></span></td>
+                <td><span data-bind="text: Country"></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var $loading = $('#loading');
+            $loading.hide();
+        
+            if (window.console && typeof (window.console.time) == "undefined") {
+                console.time = function (name, reset) {
+                    if (!name) { return; }
+                    var time = new Date().getTime();
+                    if (!console.timeCounters) { console.timeCounters = {}; }
+                    var key = "KEY" + name.toString();
+                    if (!reset && console.timeCounters[key]) { return; }
+                    console.timeCounters[key] = time;
+                };
+
+                console.timeEnd = function (name) {
+                    var time = new Date().getTime();
+                    if (!console.timeCounters) { return; }
+                    var key = "KEY" + name.toString();
+                    var timeCounter = console.timeCounters[key];
+                    var diff;
+                    if (timeCounter) {
+                        diff = time - timeCounter;
+                        var label = name + ": " + diff + "ms";
+                        console.info(label);
+                        delete console.timeCounters[key];
+                    }
+                    return diff;
+                };
+            }
+
+
+            var dataService = (function () {
+
+                var getAddresses = function (searchText) {
+                    searchText = searchText || "YYYYYYY";
+                    return $.ajax({
+                        url: '/api/address/SearchByName/' + searchText,
+                        dataType: 'json'
+                    });
+                }
+                return {
+                    getAddresses: getAddresses
+                };
+            })();
+
+
+
+            var Address = function (name, code, address1, address2, address3, address4, postCode, country) {
+                this.Name = name;
+                this.Code = code;
+                this.Address1 = address1;
+                this.Address2 = address2;
+                this.Address3 = address3;
+                this.Address4 = address4;
+                this.PostCode = postCode;
+                this.Country = country;
+            };
+
+            var vm = (function () {
+
+                var searchString = ko.observable("");
+                var addresses = ko.observableArray([]);
+
+                var filter = ko.computed(function () {
+                    console.time("Getting data from AS400");
+                    console.time("Loading data on page");
+                    $loading.show();
+                    addresses([]);
+                    var search = searchString();
+                    dataService.getAddresses(search).done(function (data) {
+                        var array = [];
+                        console.timeEnd("Getting data from AS400");
+                        for (var i = 0; i < data.length; i++) {
+                            array.push(new Address(data[i].Name,
+                                data[i].Code,
+                                data[i].Addr1,
+                                data[i].Addr2,
+                                data[i].Addr3,
+                                data[i].Addr4,
+                                data[i].PostCode,
+                                data[i].Country));
+                        }
+                        addresses(array);
+                        console.timeEnd("Loading data on page");
+                        $loading.hide();
+                    }
+                    );
+                }, this).extend({ throttle: 500 });
+
+                var loadUsers = function () {
+                    dataService.getAddresses().done(function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            addresses.push(new Address(data[i].Name,
+                                data[i].Code,
+                                data[i].Addr1,
+                                data[i].Addr2,
+                                data[i].Addr3,
+                                data[i].Addr4,
+                                data[i].PostCode,
+                                data[i].Country));
+                        }
+                    }
+                );
+                };
+
+                return {
+                    searchString: searchString,
+                    loadUsers: loadUsers,
+                    addresses: addresses
+                };
+
+            })();
+
+            vm.loadUsers();
+            ko.applyBindings(vm);
+
+        });
+    </script>
+}

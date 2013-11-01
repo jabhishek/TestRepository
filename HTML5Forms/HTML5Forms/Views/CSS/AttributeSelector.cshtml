@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "AttributeSelector";
+}
+
+<style type="text/css">
+    p :not([class~="class1"])
+    {
+        border: thin black solid;
+        padding: 4px;
+    }
+
+</style>
+
+<a id="apressanchor" class="class1 class2" href="http://apress.com">Visit the Apress website
+</a>
+<p>I like <span class="class3 class2">apples</span> and oranges.</p>
+<a id="w3canchor" href="http://w3c.org">Visit the W3C website</a>

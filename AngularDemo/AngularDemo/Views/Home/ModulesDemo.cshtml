@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+<h2>Modules Demo</h2>
+<div data-ng-app="demoApp" class="container-fluid">
+    <div data-ng-controller="SimpleController">
+        Search By:
+        <input data-ng-model="filter.name" />
+        <ul class="unstyled">
+            <li data-ng-repeat="user in users | filter:filter.name | orderBy:'name'">
+                {{user.surname}}, {{user.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    var demoApp = angular.module('demoApp', []);
+
+/* One way to define a controller
+    function SimpleController($scope) {
+        $scope.users = [
+            { name: 'Abhi', surname: 'Jain' },
+            { name: 'Sumi', surname: 'Salahudeen' },
+            { name: 'Jamie', surname: 'Fenlon' },
+            { name: 'Julie', surname: 'Hollis' }];
+    };
+    demoApp.controller('SimpleController', SimpleController);
+*/
+
+    var controllers = {};
+    controllers.SimpleController = function ($scope) {
+        $scope.users = [
+            { name: 'Abhi', surname: 'Jain' },
+            { name: 'Sumi', surname: 'Salahudeen' },
+            { name: 'Jamie', surname: 'Fenlon' },
+            { name: 'Julie', surname: 'Hollis' }];
+    };
+
+    demoApp.controller(controllers);
+
+
+</script>

@@ -1,0 +1,12 @@
+﻿<h5>View 2</h5>
+<div class="container">
+    Search By:
+    <input data-ng-model="filter.name" />
+    <ul class="unstyled">
+        <li data-ng-repeat="user in users | filter:filter.name | orderBy:'name'">{{user.surname}},
+            {{user.name}}
+        </li>
+    </ul>
+</div>
+
+<a href="#/">Go to View1</a>

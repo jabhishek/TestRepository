@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Transition";
+}
+
+<style type="text/css">
+    p
+    {
+        /*padding: 5px;
+        border: medium double black;
+        background-color: lightgray;*/
+        font-family: sans-serif;
+        background-color: rgba(255, 216, 100, 1);
+        font-size: medium;
+        padding:10px;
+        -webkit-transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -o-transition-delay: 100ms;
+        transition-delay: 100ms;
+        -webkit-transition-duration: 200ms;
+        -moz-transition-duration: 200ms;
+        -o-transition-duration: 200ms;
+        transition-duration: 200ms;
+    }
+
+        p:hover
+        {
+            /*font-family: 'Segoe UI';
+            font-size: large;*/
+            background-color: rgba(255, 100, 216, 0.5);
+            -webkit-transition-delay: 100ms;
+            -moz-transition-delay: 100ms;
+            -o-transition-delay: 100ms;
+            transition-delay: 100ms;
+            -moz-transition-property: background-color, font-family, font-size;
+            -o-transition-property: background-color, font-family, font-size;
+            -webkit-transition-property: background-color, font-family, font-size;
+            transition-property: background-color, font-family, font-size;
+            -webkit-transition-duration: 200ms;
+            -moz-transition-duration: 200ms;
+            -o-transition-duration: 200ms;
+            transition-duration: 200ms;
+            -moz-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+        }
+
+    div
+    {
+        width: 400px;
+        height: 400px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+
+
+<div>
+    <p>
+        There are lots of different kinds of fruit - there are over 500
+varieties of <span id="banana">banana</span> alone. By the time we add the
+countless types of apples, oranges, and other
+well-known fruit, we are faced with thousands of choices.
+    </p>
+</div>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "BoxShadow";
+}
+
+<style>
+    div
+    {
+        height: 200px;
+        width: 200px;
+        border-radius: 15px;
+        background-color: rgb(181, 255, 222); /*for <IE 9*/
+        background-color: rgba(0, 255, 144, 0.3);
+        -webkit-box-shadow: 1px 1px 10px 0px rgba(0, 255, 144, 1), -1px -1px 10px 0px rgba(0, 255, 144, 1);
+        box-shadow: 1px 1px 10px 0px rgba(0, 255, 144, 1), -1px -1px 10px 0px rgba(0, 255, 144, 1);
+    }
+</style>
+<h2>Box Shadow</h2>
+
+<div></div>

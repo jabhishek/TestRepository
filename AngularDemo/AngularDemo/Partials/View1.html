@@ -1,0 +1,21 @@
+﻿<h5>View 1</h5>
+<div class="container">
+    Search By:
+        <input data-ng-model="filter.name" />
+    <ul class="unstyled">
+        <li data-ng-repeat="user in users | filter:filter.name | orderBy:'name'">{{user.surname}},
+            {{user.name}}
+        </li>
+    </ul>
+
+    <br />
+    <div>
+        Name:
+    <input data-ng-model="newUser.name" type="text" /><br />
+        SurName:
+    <input data-ng-model="newUser.surname" type="text" /><br />
+        <button data-ng-click="addUser()">Add User</button>
+    </div>
+
+    <a href="#/view2">Go to View2</a>
+</div>

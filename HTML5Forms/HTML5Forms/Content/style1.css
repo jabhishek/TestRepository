@@ -1,0 +1,15 @@
+﻿* {
+  padding: 4px;
+  border: 2px solid #bbb;
+}
+p {
+  padding: 4px;
+  border: 2px solid red;
+}
+a {
+  padding: 4px;
+  border: 2px solid green;
+}
+[href] {
+  border: 2px solid blue;
+}

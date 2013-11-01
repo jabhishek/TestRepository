@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Basic Demo";
+}
+<script src="~/Scripts/angular.min.js"></script>
+<div data-ng-app="">
+    <h2>Basic Demo</h2>
+    <div class="container form-horizontal">
+        <div class="control-group">
+            <label class="control-label">Name: </label>
+            <div class="controls">
+                <input type="text" data-ng-model="name" class="input-medium" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">You typed:-: </label>
+            <div class="controls">
+                <label>{{name}}</label>
+                <label> 1 + 1 = {{1 + 1}}</label>
+            </div>
+        </div>
+
+    </div>
+</div>

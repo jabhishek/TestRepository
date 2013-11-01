@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "PseudoClassSelectors";
+}
+
+<h2>Pseudo Class Selectors</h2>
+<style type="text/css">
+    :disabled
+    {
+        background-color: rgba(255, 216, 0, 0.6);
+    }
+
+    :checked + span
+    {
+        background-color: rgba(0, 255, 0, 0.5);
+    }
+
+    :invalid
+    {
+        outline: thin solid red;
+    }
+
+    :valid
+    {
+        outline: thin solid green;
+    }
+</style>
+
+<div class="firstDiv">
+    <form method="post" action="http://titan:8080/form">
+        <p>
+            <label for="name">
+                Name:
+                <input required id="name" name="name" /></label>
+        </p>
+        <p>
+            <label for="name">
+                City:
+                <input required id="city" name="city" /></label>
+        </p>
+
+        <textarea disabled> This is a disabled text area</textarea>
+        <textarea> This is an enabled text area</textarea>
+
+        <input type="checkbox" id="apples" name="apples" />
+        <span>This will go green when checked</span>
+        <button type="submit">Submit</button>
+    </form>
+
+
+</div>

@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    #CheatSheet
+    {
+        border: 1px solid black;
+        border-radius: 6px;
+        width:100%;
+        background-color: rgba(182, 255, 0, 0.3);
+    }
+
+        #CheatSheet dl
+        {
+            margin: 10px;
+        }
+        #CheatSheet dl dt
+        {
+            font-weight: bold;
+        }
+</style>
+
+<h2>Utility Methods</h2>
+
+<fieldset>
+    <legend>Topics</legend>
+    <ul>
+        <li>@Html.ActionLink("Type Testing", "TypeTesting")</li>
+        <li>@Html.ActionLink("Collection Manipulation", "CollectionManipulation")</li>
+        <li>@Html.ActionLink("Get Script", "GetScript")</li>
+    </ul>
+</fieldset>
+
+
+<div id="CheatSheet">
+    <dl>
+        <dt>Type Testing</dt>
+        <dd>Methods available:-
+            <ol>
+                <li>$.isArray</li>
+                <li>$.isFunction</li>
+                <li>$.isObject</li>
+                <li>$.isPlainObject</li>
+                <li>$.isXmlDoc</li>
+                <li>$.isNumeric</li>
+                <li>$.isWindow</li>
+                <li>$.type - returns one of the following:- boolean, number, string, function, array, date, regexp, object, undefined, null</li>
+            </ol>
+        </dd>
+        <dt>Collection Manipulation</dt>
+        <dd>Methods available:-
+            <ol>
+                <li>makeArray</li>
+                <li>inArray</li>
+                <li>unique</li>
+                <li>merge</li>
+                <li>map - $(selector).map or $.map</li>
+                <li>grep (used to filter) - 
+                    <ul>
+                        <li>Optional paramater Invertparameter that excludes the items that matches filter criteria</li>
+                        <li>FilterFunction only receives a DOM object</li>
+                        <li>Returns a JavaScript array</li>
+                    </ul>
+            </ol>
+        </dd>
+    </dl>
+</div>

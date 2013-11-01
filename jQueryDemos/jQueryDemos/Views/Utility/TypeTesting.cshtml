@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "TypeTesting";
+}
+
+<h2>TypeTesting</h2>
+<div id="output"></div>
+<script>
+    function callAnotherFunc(args1, args2, args3) {
+        var times = $.isNumeric(args1) ? args1 : 2;
+        var delay = $.isNumeric(args2) ? args2 : 1000;
+        var funcToCall = $.isFunction(args1) ? args1 :
+            $.isFunction(args2) ? args2 : 
+            $.isFunction(args3) ? args3 : functionToCall;
+        var i = 0;
+        (function loopit() {
+            i++;
+            funcToCall();
+            if (i < times) {
+                setTimeout(loopit, delay);
+            }
+        })();
+    }
+
+    function functionToCall() {
+        $('#output').append("<br/>Function called");
+    }
+
+    $(document).ready(function ()
+    {
+        // All the below will work
+        callAnotherFunc(3, 200, functionToCall);
+        callAnotherFunc('a', 'b', 'c');
+        callAnotherFunc('a');
+        callAnotherFunc(functionToCall);
+    });
+</script>

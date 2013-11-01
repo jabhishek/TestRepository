@@ -1,0 +1,5 @@
+C:\Abhi\VS 2012 Practice Projects\HTML5\HTML5.DefiniteGuide\HTML5.DefiniteGuide\bin\HTML5.DefiniteGuide.dll
+C:\Abhi\VS 2012 Practice Projects\HTML5\HTML5.DefiniteGuide\HTML5.DefiniteGuide\bin\HTML5.DefiniteGuide.pdb
+C:\Abhi\VS 2012 Practice Projects\HTML5\HTML5.DefiniteGuide\HTML5.DefiniteGuide\obj\Debug\HTML5.DefiniteGuide.csprojResolveAssemblyReference.cache
+C:\Abhi\VS 2012 Practice Projects\HTML5\HTML5.DefiniteGuide\HTML5.DefiniteGuide\obj\Debug\HTML5.DefiniteGuide.dll
+C:\Abhi\VS 2012 Practice Projects\HTML5\HTML5.DefiniteGuide\HTML5.DefiniteGuide\obj\Debug\HTML5.DefiniteGuide.pdb

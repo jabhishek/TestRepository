@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "BordersAndBackgrounds";
+}
+
+<style type="text/css">
+    div
+    {
+        border: 10px double black;
+        background-color: lightgray;
+        background-image: url(../../Content/images/triathlon.png);
+        background-size: contain;
+        background-repeat: repeat;
+        background-position: center;
+        -moz-background-origin: border-box;
+        -webkit-background-origin: border-box;
+        background-origin: border-box;
+        background-clip: content-box;
+    }
+
+    p
+    {
+        border: medium solid black;
+    }
+
+        p:last-child
+        {
+            border-radius: 55px / 5px; /*horizontal / vertical*/
+            border-radius: 55px 20% 5% 10% / 55px 20% 5% 10%; /*horizontal / vertical*/
+            padding: 5px;
+        }
+
+    #triangle
+    {
+        border-color: grey transparent transparent transparent;
+        border-width: 10px;
+        border-style: solid;
+        width: 0;
+        height: 0;
+    }
+
+    textarea
+    {
+        border: medium solid black;
+        background-color: lightgray;
+        background-image: url(../../Content/images/triathlon.png);
+        -moz-background-size: 60px 60px;
+        -o-background-size: 60px 60px;
+        -webkit-background-size: 60px 60px;
+        background-size: 60px 60px;
+        background-repeat: repeat;
+        background-attachment: fixed;
+        -moz-background-origin: border-box;
+        -webkit-background-origin: border-box;
+        background-origin: border-box;
+    }
+</style>
+
+<h2>Borders And Backgrounds</h2>
+
+<div>
+    <p>
+        There are lots of different kinds of fruit - there are over 500 varieties
+of banana alone. By the time we add the countless types of apples, oranges,
+and other well-known fruit, we are faced with thousands of choices.
+    </p>
+
+    <p>
+        There are lots of different kinds of fruit - there are over 500 varieties
+of banana alone. By the time we add the countless types of apples, oranges,
+and other well-known fruit, we are faced with thousands of choices.
+    </p>
+
+    <p>
+        <textarea rows="8" cols="30">
+        There are lots of different kinds of fruit - there are over 500 varieties
+        of banana alone. By the time we add the countless types of apples, oranges,
+        and other well-known fruit, we are faced with thousands of choices.
+        </textarea>
+    </p>
+    <div id="triangle"></div>
+</div>

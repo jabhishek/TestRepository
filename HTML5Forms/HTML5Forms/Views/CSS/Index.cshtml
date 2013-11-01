@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <fieldset>
+        <legend>HTML5</legend>
+        @Html.ActionLink("HTML1", "HTML1")
+    </fieldset>
+    <fieldset>
+        <legend>CSS</legend>
+        <ul>
+            <li>@Html.ActionLink("CSS Selectors 1", "CSSPage1")</li>
+            <li>@Html.ActionLink("CSS Selectors 1- AttributeSelector", "AttributeSelector")</li>
+            <li>@Html.ActionLink("CSS Selectors 1- Pseudo-Element Selectors", "PseudoSelector")</li>
+            <li>@Html.ActionLink("CSS Selectors 2 - Child Selectors", "ChildSelectors")</li>
+            <li>@Html.ActionLink("CSS Selectors 2 - Pseudo Class Selectors", "PseudoClassSelectors")</li>
+            <li>@Html.ActionLink("CSS Selectors 2 - Dynamic Pseudo Class Selectors", "DynamicPseudoClassSelectors")</li>
+            <li>@Html.ActionLink("Borders And Backgrounds", "BordersAndBackgrounds")</li>
+            <li>@Html.ActionLink("Box Shadow", "BoxShadow")</li>
+            <li>@Html.ActionLink("Box Model", "BoxModel1")</li>
+            <li>@Html.ActionLink("Box Model - Sizing", "BoxModel2")</li>
+            <li>@Html.ActionLink("Box Model - Display", "BoxModel3")</li>
+            <li>@Html.ActionLink("Box Model - Float", "BoxModel4")</li>
+            <li>@Html.ActionLink("Layout - Positioning", "Layout1")</li>
+            <li>@Html.ActionLink("Layout - MultiColumn Layout", "LayoutMultiColumn")</li>
+            <li>@Html.ActionLink("Layout - Table Layout", "LayoutTable")</li>
+            <li>@Html.ActionLink("Styling Text - White Space", "StylingText1")</li>
+            <li>@Html.ActionLink("Styling Text - Using font-face", "FontFace")</li>
+            <li>@Html.ActionLink("Transition", "Transition")</li>
+            <li>@Html.ActionLink("Animation", "Animation")</li>
+            <li>@Html.ActionLink("Styling Table", "StylingTable")</li>
+            <li>@Html.ActionLink("Styling Lists", "StylingLists")</li>
+        </ul>
+    </fieldset>
+</body>
+</html>

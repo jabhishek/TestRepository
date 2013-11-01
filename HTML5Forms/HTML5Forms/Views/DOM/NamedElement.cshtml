@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "NamedElement";
+}
+
+<h2>NamedElement</h2>
+
+
+<pre id="results"></pre>
+<img id="lemon" name="image2" src="~/Content/images/triathlon.png" alt="lemon" />
+<p>
+    There are lots of different kinds of fruit - there are over 500 varieties
+    of banana alone. By the time we add the countless types of apples, oranges,
+and other well-known fruit, we are faced with thousands of choices.
+</p>
+<img id="apple" name="image" src="~/Content/images/triathlon.png" alt="apple" />
+<p>
+    One of the most interesting aspects of fruit is the variety available in
+each country. I live near London, in an area which is known for
+its apples.
+</p>
+<img id="banana" src="~/Content/images/triathlon.png" alt="small banana" />
+<script>
+    var resultsElement = document.getElementById("results");
+    var elems = document["image"];
+    /* elems.namedItem is used to check what type of object is returned. If HTMLCollection is returned, and it has more than one items
+    , then namedItem would return a value and if condition would match otherwise the code in 'else' would execute */
+    if (elems.namedItem) {
+        for (var i = 0; i < elems.length; i++) {
+            resultsElement.innerHTML += "Image Element: " + elems[i].id + "\n";
+        }
+    } else {
+        resultsElement.innerHTML += "Src for element is: " + elems.src + "\n";
+    }
+</script>

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Directive Restrictions</h2>
+
+<div data-ng-app="myApp">
+    <users-message></users-message>
+    <div link-directive/>
+    <div class="class-directive"/>
+</div>
+
+<script>
+
+    var myApp = angular.module("myApp", []);
+
+    /* E = Element */
+    /* C = Class */
+    /* A = Attribute */
+    myApp.directive("usersMessage", function () {
+        return {
+            restrict: "E",
+            template: "<div>My first directive</div>"
+        };
+    });
+    myApp.directive("linkDirective", function () {
+        return {
+            restrict: "A",
+            link: function () {
+                alert("Alert from directive");
+            }
+        };
+    });
+    myApp.directive("classDirective", function () {
+        return {
+            restrict: "C",
+            link: function () {
+                alert("Alert from class directive");
+            }
+        };
+    });
+
+</script>

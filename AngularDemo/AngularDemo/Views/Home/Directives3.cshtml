@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>Basic Behaviors</h2>
+
+<div data-ng-app="myApp">
+    <div click enter>Some Content</div>
+</div>
+
+<script>
+
+    var myApp = angular.module("myApp", []);
+
+    /*camelCase doesn't work */
+    myApp.directive("click", function () {
+        return {
+            restrict: "A",
+            link: function (scope, element) {
+                element.bind("click", function () {
+                    console.log("Click logged.");
+                });
+            }
+        };
+    });
+
+    /* Can also write like this*/
+    /* Default restriction is A (Attribute) */
+    myApp.directive("enter", function () {
+        return function(scope, element) {
+            element.bind("mouseenter", function() {
+                console.log("MouseEnter logged.");
+            });
+        };
+    });
+  
+
+</script>

@@ -1,0 +1,38 @@
+﻿@baseFontSize: 14px;
+@main-color: red;
+@main-fontcolor : #ddd;
+@defaultpadding: 5px;
+
+.rounded-corners-all(@size : 5px)
+{
+	border-radius:@size;
+}
+p
+{
+	.rounded-corners-all;
+    background: @main-color;
+    color: lighten(@main-fontcolor, 1%);
+    font-size: @baseFontSize;
+    width: -webkit-calc(80% - 20px);
+    width: -moz-calc(80% - 20px);
+}
+
+// comment
+#main
+{
+	.rounded-corners-all(5px);
+    h1
+    {
+		.rounded-corners-all(20px);
+		background: lighten(@main-color, 10%);
+        color: lighten(@main-fontcolor, 1%);
+		padding: 0 @defaultpadding * 2 0 @defaultpadding * 2;
+    }
+
+    p
+    {
+        width: -webkit-calc(80% - 20px);
+        width: -moz-calc(80% - 20px);
+		padding: 0 @defaultpadding 0 @defaultpadding;
+    }
+}

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>Sharing Data between Controllers</h2>
+
+<div data-ng-app="myApp">
+    <div data-ng-controller="Controller1">
+        <input type="text" data-ng-model="data.message" />
+        <h6>{{data.message}}</h6>
+    </div>
+    <div data-ng-controller="Controller2">
+        <input type="text" data-ng-model="data.message" />
+        <h6>{{reversedMessage(data.message)}}</h6>
+    </div>
+
+</div>
+
+<script>
+
+    var myApp = angular.module('myApp', []);
+    myApp.factory('Data', function () {
+        return { message: "Data from service" };
+    });
+
+    function Controller1($scope, Data) {
+        $scope.data = Data;
+    }
+    function Controller2($scope, Data) {
+        $scope.data = Data;
+
+        $scope.reversedMessage = function(message) {
+            return message.split("").reverse().join("");
+        };
+    }
+</script>

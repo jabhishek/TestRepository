@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>Filters</h2>
+
+<div data-ng-app="myApp">
+    <div data-ng-controller="Controller1">
+        <input type="text" data-ng-model="data.message" />
+        <h6>{{data.message}}</h6>
+    </div>
+    <div data-ng-controller="Controller2">
+        <input type="text" data-ng-model="data.message" />
+        <div>
+            Reverse: <strong>{{data.message | reverse}}</strong><br/>
+            Length: <strong>{{data.message | length}}</strong>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    var myApp = angular.module('myApp', []);
+    myApp.factory('Data', function () {
+        return { message: "Data from service" };
+    });
+
+    myApp.filter('reverse', function () {
+        return function (text) {
+            return text.split("").reverse().join("");
+        };
+    });
+
+    myApp.filter('length', function () {
+        return function (text) {
+            return text.length;
+        };
+    });
+
+    function Controller1($scope, Data) {
+        $scope.data = Data;
+    }
+    function Controller2($scope, Data) {
+        $scope.data = Data;
+
+        /* replaced by a filter
+        $scope.reversedMessage = function (message) {
+            return message.split("").reverse().join("");
+        };*/
+    }
+</script>

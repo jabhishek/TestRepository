@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>Directives</h2>
+
+<div data-ng-app="myApp">
+    <users-message></users-message>
+</div>
+
+<script>
+
+    var myApp = angular.module("myApp", []);
+
+    /*camelCase doesn't work */
+    myApp.directive("usersMessage", function () {
+        return {
+            restrict: "E",
+            template: "<div>My first directive</div>"
+        };
+    });
+
+</script>

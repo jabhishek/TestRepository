@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/less/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.0.2.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>On</title>
+</head>
+<body>
+
+    <div id="main" class="container-fluid">
+        <button id="button" class="btn btn-inverse">Add</button><br />
+        <input type="number" id="index" />
+        <button id="hideButton" class="btn btn-inverse">Hide</button>
+        <table class="table table-condensed table-bordered table-striped table-hover">
+            <tr>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td>3
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        /*   $('#main').on('click', 'td', function() {
+               alert($(this).text());
+           });*/
+
+        $('#main').on('click', 'td', { myData: 'Abhi' }, function (event) {
+            alert($(this).text().trim() + ' ' + event.data.myData);
+        });
+
+        function addRow() {
+            $('table').append('<tr><td>6</td></tr>');
+        }
+
+        $('#button').on('click', addRow);
+
+        $('#hideButton').on('click',
+            function (event) {
+                var index = $('#index').val();
+                //alert(index);
+                var selector = '#main table tr:nth-child(' + index + ')';
+                //  alert(selector);
+                $(selector).fadeOut(function () {
+                    $(this).remove();
+                });
+            });
+    });
+</script>

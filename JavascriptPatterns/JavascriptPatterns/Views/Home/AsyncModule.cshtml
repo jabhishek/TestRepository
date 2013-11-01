@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Async Module Pattern";
+}
+
+<h2>AsyncModule</h2>
+
+<div>
+    <ol>
+        <li>Install RequireJS</li>
+        <li>Define a js file main.js to start the app. This is mandatory.</li>
+        <li>In the script tag, use the data-main attribute to specify the main page</li>
+
+    </ol>
+</div>
+
+<div id="message"></div>
+<script src="~/Scripts/require.js" data-main="/App_Scripts/main.js"></script>

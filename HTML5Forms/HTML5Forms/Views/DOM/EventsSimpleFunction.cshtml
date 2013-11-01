@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "EventsSimpleFunction";
+}
+
+<h2>EventsSimpleFunction</h2>
+
+<style type="text/css">
+    p
+    {
+        background: gray;
+        color: white;
+        padding: 10px;
+        margin: 5px;
+        border: thin solid black;
+    }
+</style>
+
+<p>
+    There are lots of different kinds of fruit - there are over
+500 varieties of banana alone. By the time we add the countless types of
+apples, oranges, and other well-known fruit, we are faced with thousands of
+choices.
+</p>
+<p>
+    One of the most interesting aspects of fruit is the variety available in
+each country. I live near London, in an area which is known for
+its apples.
+</p>
+
+
+<script type="text/javascript">
+
+    var elems = document.getElementsByTagName("p");
+    for (var i = 0; i < elems.length; i++) {
+        elems[i].onmouseover = handleMouseOver;
+        elems[i].onmouseout = handleMouseOut;
+    }
+
+    function handleMouseOver(elem) {
+        elem.target.style.background = 'white';
+        elem.target.style.color = 'black';
+    }
+    function handleMouseOut(elem) {
+        elem.target.style.removeProperty('color');
+        elem.target.style.removeProperty('background');
+    }
+</script>
+

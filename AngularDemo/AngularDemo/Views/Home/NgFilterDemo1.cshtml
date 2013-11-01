@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>ngFilter</h2>
+
+<div data-ng-app="myApp">
+    <div data-ng-controller="CompanyController">
+        @*Filter by first Name*@
+        Filter by Name: <input type="text" data-ng-model="search.name"/>
+        <table class="table table-condensed table-hover">
+            <tr data-ng-repeat="user in company.users | filter:search | orderBy:'name'">
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    var myApp = angular.module('myApp', []);
+    myApp.factory('company', function () {
+        var company = {};
+        company.users = [
+            { name: 'Abhi', surname: 'Jain' },
+            { name: 'Sumi', surname: 'Salahudeen' },
+            { name: 'Jamie', surname: 'Fenlon' },
+            { name: 'Micky', surname: 'Sz' },
+            { name: 'Chris', surname: 'Jackson' },
+            { name: 'Sandhya', surname: 'Gidda' },
+            { name: 'Steve', surname: 'Clarke' },
+            { name: 'Clarke', surname: 'Steve' },
+            { name: 'Julie', surname: 'Hollis' }];
+
+        return company;
+    });
+
+    function CompanyController($scope, company) {
+        $scope.company = company;
+    };
+
+</script>

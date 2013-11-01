@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<style>
+    .panel
+    {
+        background-color: red;
+    }
+</style>
+<h2>title</h2>
+
+<div data-ng-app="myApp">
+    <div data-ng-controller="AppController">
+        <div enter="loadMoreTweets()">Some Content</div>
+    </div>
+</div>
+
+<script>
+
+    var myApp = angular.module("myApp", []);
+
+    myApp.controller("AppController", function ($scope) {
+        $scope.loadMoreTweets = function () {
+            console.log("Loading");
+        };
+    });
+    myApp.directive("enter", function () {
+        return function (scope, element, attrs) {
+            element.bind("mouseenter", function () {
+                console.log("Loading more tweets");
+                scope.$apply(attrs.enter);
+            });
+        };
+    });
+</script>

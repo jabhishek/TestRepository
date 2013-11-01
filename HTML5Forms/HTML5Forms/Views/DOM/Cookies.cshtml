@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Cookies";
+}
+
+<h2>Cookies</h2>
+
+<p id="cookiedata">
+</p>
+<button id="read">Read Cookie</button>
+<button id="write">Add Cookie</button>
+<button id="update">Update Cookie</button>
+<script>
+    var cookieCount = 0;
+    document.getElementById("update").onclick = updateCookie;
+    document.getElementById("write").onclick = createCookie;
+    document.getElementById("read").onclick = readCookies;
+    readCookies();
+    function readCookies() {
+        document.getElementById("cookiedata").innerHTML = document.cookie;
+    }
+    function createCookie() {
+        cookieCount++;
+        document.cookie = "Cookie_" + cookieCount + "=Value_" + cookieCount;
+        readCookies();
+    }
+    function updateCookie() {
+        document.cookie = "Cookie_" + cookieCount + "=Updated_" + cookieCount;
+        readCookies();
+    }
+</script>

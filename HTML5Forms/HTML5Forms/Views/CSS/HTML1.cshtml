@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @*@ViewBag.Parameter == null ? "" : ViewBag.Parameter;*@
+
+
+        <form method="post" action="/home/create" name="fruitvote" id="fruitvote">
+
+
+            <fieldset>
+                <legend>Personal Details</legend>
+                <p>
+                    <label for="name">
+                        Name:
+                    <input id="name" name="name" autofocus placeholder="Enter your name" /></label>
+                </p>
+                <p>
+                    <label for="city">
+                        City:
+                <input id="city" name="city" maxlength="10" size="10" placeholder="Enter your city" list="cities" /></label>
+                </p>
+                <progress id="myprogress" value="50" max="100"></progress>
+                <p>
+                    <button type="button" value="30">30%</button>
+                    <button type="button" value="60">60%</button>
+                    <button type="button" value="90">90%</button>
+                </p>
+
+                <meter id="mymeter" value="90"
+                    min="10" max="100" low="20" high="80" optimum="60"></meter>
+            </fieldset>
+            <button type="reset">Reset</button>
+            <button>Submit</button>
+        </form>
+
+        <datalist id="cities">
+            <option value="Jaipur" label="Home town" selected="selected" />
+            <option value="Gravesend">Residence</option>
+            <option value="Jhansi" />
+        </datalist>
+    </div>
+
+    <script>
+        var buttons = document.getElementsByTagName('BUTTON');
+        var progress = document.getElementById('myprogress');
+        var meter = document.getElementById('mymeter');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = function (e) {
+                progress.value = e.target.value;
+                meter.value = e.target.value;
+            };
+        }
+    </script>
+</body>
+</html>

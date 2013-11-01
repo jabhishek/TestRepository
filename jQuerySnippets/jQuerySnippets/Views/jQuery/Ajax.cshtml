@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/less/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.0.2.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ajax</title>
+</head>
+<body>
+    <div id="main" class="container-fluid">
+        <button id="loadGet" class="btn btn-inverse">Load using Get</button><br />
+        <button id="loadGetJson" class="btn btn-inverse">Load using GetJSon</button><br />
+        <div id="output" class="well well-large">
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    $(document).ready(function () {
+        $('#loadGet').on('click', function () {
+            var url = '@Url.Action("PlainHtml")';
+            $.get(url, function (data) {
+                $('#output').html(data);
+            });
+        });
+        $('#loadGetJson').on('click', function () {
+            var url = '@Url.Action("PlainJSon")';
+            $.getJSON(url, null, function (data) {
+                var msg = data;
+                $('#output').html(data.message);
+            });
+        });
+    });
+</script>

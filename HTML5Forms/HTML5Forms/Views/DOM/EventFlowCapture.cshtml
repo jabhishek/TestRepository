@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "EventFlowCapture";
+}
+
+<style type="text/css">
+    p
+    {
+        background: gray;
+        color: white;
+        padding: 10px;
+        margin: 5px;
+        border: thin solid black;
+    }
+
+    span
+    {
+        background-color: green;
+        color: orange;
+        padding: 2px;
+        cursor: default;
+    }
+</style>
+
+<h2>EventFlowCapture</h2>
+
+
+<p id="block1">
+    There are lots of different kinds of fruit - there are over
+500 varieties of <span id="banana">banana</span> alone. By the time we add
+the countless types of apples, oranges, and other well-known fruit, we are
+faced with thousands of choices.
+</p>
+
+<script type="text/javascript">
+    var banana = document.getElementById("banana");
+    var textblock = document.getElementById("block1");
+    banana.addEventListener("mouseover", handleMouseEvent);
+    banana.addEventListener("mouseout", handleMouseEvent);
+    textblock.addEventListener("mouseover", handleDescendantEvent, true);
+    textblock.addEventListener("mouseout", handleDescendantEvent, true);
+    function handleDescendantEvent(e) {
+        var type = e.type;
+        var phase = e.eventPhase;
+        var target = e.target;
+        var currenttarget = e.currentTarget;
+        if (e.type == "mouseover" && e.eventPhase == Event.CAPTURING_PHASE) {
+            e.target.style.border = "thick solid red";
+            e.currentTarget.style.border = "thick double black";
+        } else if (e.type == "mouseout" && e.eventPhase == Event.CAPTURING_PHASE) {
+            e.target.style.removeProperty("border");
+            e.currentTarget.style.removeProperty("border");
+        }
+
+    //        With this change, the browser capture phase ends when the handler on the p element is invoked. No
+    //        other elements will be inspected, and the target and bubble phases (described shortly) will be skipped.
+    //In terms of the example, this means that the style changes in the handleMouseEvent function will not be
+    //applied in response to the mouseover event
+        e.stopPropagation();
+    }
+    function handleMouseEvent(e) {
+        if (e.type == "mouseover") {
+            e.target.style.background = 'white';
+            e.target.style.color = 'black';
+        } else {
+            e.target.style.removeProperty('color');
+            e.target.style.removeProperty('background');
+        }
+    }
+</script>

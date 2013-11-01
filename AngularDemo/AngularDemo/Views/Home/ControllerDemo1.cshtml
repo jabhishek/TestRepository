@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>Dot</h2>
+
+
+@*// changing message to data.message changes behavior*@
+
+<div data-ng-app="">
+    <input type="text" data-ng-model="message" />
+    <h6>{{message}}</h6>
+
+    <div data-ng-controller="Controller1">
+        <input type="text" data-ng-model="message" />
+        <h6>{{message}}</h6>
+    </div>
+    <div data-ng-controller="Controller2">
+        <input type="text" data-ng-model="message" />
+        <h6>{{message}}</h6>
+    </div>
+
+</div>
+
+<script>
+    function Controller1($scope) {
+        
+    }
+    function Controller2($scope) {
+    }
+</script>

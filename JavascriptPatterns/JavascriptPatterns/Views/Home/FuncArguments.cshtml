@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "FuncArguments";
+}
+
+<h2>Functional Arguments</h2>
+
+<script>
+
+    function myFunc(a, b, c)
+    {
+        return a + b + c;
+    }
+
+    console.log(myFunc(10, 5, 8)); // returns 23
+    // The below 2 are also valid calls, although not the right usage
+    console.log(myFunc(10, 5)); // returns NaN
+    console.log(myFunc(10, 5, 8, 10)); // returns 23, as it ignores the extra paramater
+
+    // The way to handle it :-
+    function myFunc2()
+    {
+        var x = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            x = x + arguments[i];
+        }
+        return x;
+    }
+    console.log(myFunc2(10, 5, 8)); // returns 23
+    console.log(myFunc2(10, 5)); // returns 15
+    console.log(myFunc2(10, 5, 8, 10)); // returns 33
+
+
+</script>

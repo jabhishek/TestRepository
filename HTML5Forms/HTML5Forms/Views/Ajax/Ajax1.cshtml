@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Ajax1";
+}
+
+<h2>Ajax1</h2>
+
+<div>
+    <button>DOM</button>
+    <button>CSS</button>
+    <button>Ajax</button>
+    <button>Random</button>
+</div>
+<div id="target">
+    Press a button
+</div>
+<script>
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = handleButtonPress;
+    }
+    function handleButtonPress(e) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = handleResponse;
+        httpRequest.open("GET", "\\" + e.target.innerHTML);
+        httpRequest.send();
+    }
+    function handleResponse(e) {
+        if (e.target.readyState == XMLHttpRequest.DONE &&
+        e.target.status == 200) {
+            document.getElementById("target").innerHTML
+            = e.target.responseText;
+        }
+    }
+</script>

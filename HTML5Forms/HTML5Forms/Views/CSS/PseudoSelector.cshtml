@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "PseudoSelector";
+}
+
+<h2>PseudoSelector</h2>
+
+<style type="text/css">
+    /*::first-line
+    {
+        background-color: grey;
+        color: white;
+    }*/
+
+    /*::first-letter
+    {
+        text-transform: capitalize;
+        font-size: x-large;
+    }*/
+
+    a:before
+    {
+        content: "Click here to ";
+    }
+
+    a:after
+    {
+        content: "!";
+    }
+
+    body
+    {
+        counter-reset: paracount;
+    }
+
+    p:before
+    {
+        content: counter(paracount) ". ";
+        counter-increment: paracount 2;
+    }
+</style>
+
+<p>
+    Fourscore and seven years ago our fathers brought forth
+on this continent a new nation, conceived in liberty, and
+dedicated to the proposition that all men are created equal.
+</p>
+<p>I like <span lang="en-uk" class="class2">apples</span> and oranges.</p>
+<a href="http://w3c.org">Visit the W3C website</a>

@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "StylingText1";
+}
+
+<h2>StylingText1</h2>
+
+<style>
+    #fruittext
+    {
+        width: 400px;
+        margin: 5px;
+        padding: 5px;
+        border: medium double black;
+        background-color: lightgrey;
+        white-space: pre-line;
+        direction: rtl;
+        word-spacing: 10px;
+        letter-spacing: 2px;
+        line-height: 3em;
+    }
+
+    #first
+    {
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    #second
+    {
+        -ms-word-wrap: normal;
+        word-wrap: normal;
+        text-indent: 10%;
+        text-decoration: blink;
+    }
+
+    p
+    {
+        width: 150px;
+        margin: 15px;
+        padding: 5px;
+        border: medium double black;
+        background-color: lightgrey;
+        float: left;
+    }
+
+    h2
+    {
+        -webkit-text-shadow: 0.1em .1em 1px lightgrey;
+        text-shadow: 0.1em .1em 1px lightgrey;
+    }
+</style>
+
+<p id="fruittext">
+    There are lots of different kinds of fruit - there are over 500
+varieties
+of banana alone. By the time we add the countless types of
+apples, oranges, and other well-known fruit, we are faced with
+thousands of choices.
+One of the most interesting aspects of fruit is the
+variety available in each country. I live near London,
+in an area which is
+known for its apples.
+</p>
+<p id="first">
+    There are lots of different kinds of fruit - there are over 500
+varieties of madeupfruitwithaverylongname alone.
+</p>
+<p id="second">
+    There are lots of different kinds of fruit - there are over 500
+varieties of madeupfruitwithaverylongname alone.
+</p>
+<div style="clear: both"></div>
+<div id="Topics">
+    Explores:-
+    <ol>
+        <li>White space</li>
+        <li>Text Direction</li>
+        <li>Space Between Words, Letters, and Lines</li>
+        <li>Word break</li>
+        <li>Text Indent</li>
+        <li>Text Shadow</li>
+    </ol>
+</div>

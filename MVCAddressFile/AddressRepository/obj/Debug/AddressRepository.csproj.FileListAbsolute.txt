@@ -1,0 +1,13 @@
+C:\Work\Visual\MVCAddressFile\AddressRepository\bin\Debug\AddressRepository.dll
+C:\Work\Visual\MVCAddressFile\AddressRepository\bin\Debug\AddressRepository.pdb
+C:\Work\Visual\MVCAddressFile\AddressRepository\bin\Debug\IBM.Data.DB2.dll
+C:\Work\Visual\MVCAddressFile\AddressRepository\bin\Debug\IBM.Data.U2.Ucinet.dll
+C:\Work\Visual\MVCAddressFile\AddressRepository\obj\Debug\AddressRepository.csprojResolveAssemblyReference.cache
+C:\Work\Visual\MVCAddressFile\AddressRepository\obj\Debug\AddressRepository.dll
+C:\Work\Visual\MVCAddressFile\AddressRepository\obj\Debug\AddressRepository.pdb
+C:\Abhi\VS 2012 Practice Projects\Knockout\MVCAddressFile\AddressRepository\bin\Debug\AddressRepository.dll
+C:\Abhi\VS 2012 Practice Projects\Knockout\MVCAddressFile\AddressRepository\bin\Debug\AddressRepository.pdb
+C:\Abhi\VS 2012 Practice Projects\Knockout\MVCAddressFile\AddressRepository\bin\Debug\IBM.Data.DB2.dll
+C:\Abhi\VS 2012 Practice Projects\Knockout\MVCAddressFile\AddressRepository\obj\Debug\AddressRepository.csprojResolveAssemblyReference.cache
+C:\Abhi\VS 2012 Practice Projects\Knockout\MVCAddressFile\AddressRepository\obj\Debug\AddressRepository.dll
+C:\Abhi\VS 2012 Practice Projects\Knockout\MVCAddressFile\AddressRepository\obj\Debug\AddressRepository.pdb
